@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             img.setAttribute('data-src', url);
 
+            img.setAttribute('draggable', 'false');
+
             img.alt = 'img';
 
             div.appendChild(img);
@@ -45,8 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         initSequentialLoading();
-
-        initHorizontalScroll();
 
     }
 
@@ -91,32 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         loadNext();
-
-    }
-
-    function initHorizontalScroll() {
-
-        const mq = window.matchMedia('(min-width:500px)');
-
-        function handleScroll(e) {
-
-            e.preventDefault();
-
-            container.scrollLeft += e.deltaY * 0.75;
-
-        }
-
-        function updateListener(e) {
-
-            if (e.matches) container.addEventListener('wheel', handleScroll, {passive: false});
-
-            else container.removeEventListener('wheel', handleScroll);
-
-        }
-
-        updateListener(mq);
-
-        mq.addEventListener('change', updateListener);
 
     }
 

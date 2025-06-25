@@ -45,8 +45,6 @@ input, textarea, select, button {
 :root {
     --background-light: #FFFFFF;
     --background-dark: #000000;
-    --accent-light: #F5F5F5;
-    --accent-dark: #141414;
     --text-light: #000000;
     --text-dark: #FFFFFF;
 }
@@ -55,11 +53,17 @@ input, textarea, select, button {
 
 html, body {
     scrollbar-width: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 10px;
     color: var(--text);
     background-color: var(--background);
     font-family: system-ui, sans-serif;
@@ -69,38 +73,21 @@ body {
 
 /* ----- HEADER ----- */
 
-header {
-    position: fixed;
-    top: 10px;
-    right: 0;
-    opacity: 0;
-    z-index: 1;
-}
-
-header a {
-    padding: 10px 14px;
-}
-
 /* ----- MAIN ----- */
 
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 10px;
-    width: 100%;
-    padding: 15vh 0;
-    overflow: auto;
-    scrollbar-width: none;
 }
 
 .img-container {
     display: flex;
-    width: 90vw;
 }
 
 .img-container img {
     width: 100%;
+    max-height: 90vh;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px) scale(0.95);
@@ -115,63 +102,18 @@ main {
 
 /* ----- FOOTER ----- */
 
-footer {
-
-}
-
 /* ----- MEDIA QUERY ----- */
 
 @media (min-width: 500px) {
 
-    html, body {
-        width: 100%;
-        height: 100%;
-    }
-
-    body {
-        flex-direction: row;
-    }
-
-    header:hover {
-        opacity: 1;
-    }
-
-    main {
-        flex-direction: row;
-        width: auto;
-        padding: 0 15vw;
-    }
-
-    .img-container {
-        width: auto;
-        max-height: 1000px;
-        height: 90vh;
-    }
-
-    .img-container img {
-        width: auto;
-        height: 100%;
-    }
-
-    footer {
-
-    }
-
 }
 
-@media (hover: hover) and (pointer: fine) {
-
-    .ex:hover {
-        background-color: var(--accent);
-    }
-
-}
+@media (hover: hover) and (pointer: fine) {}
 
 @media (prefers-color-scheme: light) {
 
     :root {
         --background: var(--background-light);
-        --accent: var(--accent-light);
         --text: var(--text-light);
     }
 
@@ -181,7 +123,6 @@ footer {
 
     :root {
         --background: var(--background-dark);
-        --accent: var(--accent-dark);
         --text: var(--text-dark);
     }
 
